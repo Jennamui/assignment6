@@ -1,0 +1,130 @@
+﻿loinc_code,loinc_code_description
+67789-8,Black Neighborhood [PhenX]
+82823-6,Criminal household member--before 18 years old [ACE]
+68507-3,Did you ever serve on active duty in the armed forces of the U.S. [SAMHSA]
+82144-7,"Did you live with anyone who served time or was sentenced to serve time in a prison, jail, or other correctional facility--before 18 years old [ACE.BRFSS]"
+93026-3,Do you feel physically and emotionally safe where you currently live [PRAPARE]
+93677-3,Do you need help with legal issues [WellRx]
+75706-2,"During the past 2 weeks, was someone available to help you if you needed and wanted help [COOP.WONCA]"
+75802-9,"During the past 4 weeks, was someone available to help you if you needed and wanted help [COOP]"
+67786-4,Female-headed households Neighborhood [PhenX]
+93028-9,"Have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility in past 1 year [PRAPARE]"
+93029-7,How often do you see or talk to people that you care about and feel close to [PRAPARE]
+91662-7,How often is the following kind of support available to you if you need it - someone who understands your problems [MOS Social Support Survey]
+67784-9,Individuals below poverty line Neighborhood [PhenX]
+67785-6,Individuals on public assistance Neighborhood [PhenX]
+67788-0,Less than age 18 Neighborhood [PhenX]
+91642-9,Medical Outcomes Study Social Support Survey panel [MOS Social Support Survey]
+63015-2,PhenX - discrimination protocol 210301
+62929-5,PhenX - perceived social support - conflict protocol 180701
+62933-7,PhenX - social isolation protocol 181001
+63032-7,PhenX - social networks protocol 211101
+82818-6,Physical neglect--before 18 years old [ACE]
+76506-5,Social connection and isolation panel
+91663-5,Social support index [MOS Social Support Survey]
+67787-2,Unemployed Neighborhood [PhenX]
+93072-7,"Are you feeling bothered, upset, or worried at this point in your pregnancy about paying for the baby's clothes, food, or medical care [NuPDQ]"
+93673-2,Are you unemployed or without regular income [WellRx]
+93033-9,Are you worried about losing your housing [PRAPARE]
+11294-6,Current employment Narrative - Reported
+68505-7,Current occupational status [SAMHSA]
+93671-6,Do you have trouble finding or paying for transportation [WellRx]
+93670-8,Do you have trouble paying for your gas or electricity bills [WellRx]
+93674-0,Do you need help finding a better job [WellRx]
+93107-1,"During the past 4 weeks, I am content with my current income [Quality of Working Life Questionnaire for Cancer Survivors]"
+91570-2,Employment net income in past 30 days
+67875-5,Employment status - current
+91388-9,Has automobile available for use
+93030-5,"Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living [PRAPARE]"
+93035-4,Has season or migrant farm work been your or your family's main source of income at any point in past 2 years [PRAPARE]
+91387-1,Has valid driver license
+93031-3,Have you or any family members you live with been unable to get any of the following when it was really needed in past 1 year [PRAPARE]
+76513-1,"How hard is it for you to pay for the very basics like food, housing, medical care, and heating [CARDIA]"
+91648-6,Tangible support score [MOS Social Support Survey]
+77244-2,Total combined household income range in last year
+63509-4,"Was your total family income from all sources less than 100,000 dollars or 100,000 dollars or more [PhenX]"
+63507-8,"Was your total family income from all sources less than 35,000 dollars or 35,000 dollars or more [PhenX]"
+63506-0,"Was your total family income from all sources less than 50,000 dollars or 50,000 dollars or more [PhenX]"
+63510-2,"Was your total family income from all sources less than 75,000 dollars or 75,000 dollars or more [PhenX]"
+63508-6,Was your total family income from all sources less than poverty threshold or more [PhenX]
+63586-2,"What was your best estimate of the total income of all family members from all sources, before taxes, in last year [PhenX]"
+67050-5,You are looking for a job and can't find the one you want [PhenX]
+67089-3,You don't have enough money to buy the things you or your kids need [PhenX]
+93675-7,Do you need help getting more education [WellRx]
+82589-3,Highest level of education
+87300-0,Highest level of education Father
+57712-2,Highest level of education Mother
+80913-7,Highest level of education [US Standard Certificate of Death]
+63504-5,What is the highest grade or level of school you have completed or the highest degree you have received [NHANES]
+82590-1,Years of education [#] - Reported
+82813-7,Adverse Childhood Experiences [ACE]
+79060-0,Are you able to receive a call on a cell phone [PROMIS]
+93676-5,Are you concerned about someone in your home using drugs or alcohol [WellRx]
+93069-3,"Are you feeling bothered, upset, or worried at this point in your pregnancy about whether the baby might be affected by alcohol, cigarettes, or drugs that you have taken [NuPDQ]"
+93669-0,Are you homeless or worried that you might be in the future [WellRx]
+82152-0,BRFSS ACE Module [ACE.BRFSS]
+93045-3,Carbon monoxide [Mass/volume] in Air
+75274-1,Characteristics of residence
+46561-7,Current ability - transportation [OASIS]
+63027-7,Deprecated PhenX measure - neighborhood safety
+93682-3,Do you feel unsafe in your daily life [WellRx]
+63839-5,Do you have wall-to-wall carpeting in your home [FEAS]
+93672-4,"Do you need daycare, or better daycare, for your kids [WellRx]"
+63833-8,Floor material in your workspace if other [FEAS]
+63837-9,Has there been renovation in your home during the past 12 months [FEAS]
+63836-1,Has there been renovation or repairs in your home due to moisture damage [FEAS]
+63831-2,Has there been renovation or repairs in your workspace because of moisture damage [FEAS]
+83322-8,Home environment safety and stability [PCAM]
+71802-3,Housing status
+76499-3,"Humiliation, Afraid, Rape, and Kick questionnaire [HARK]"
+67611-4,"I feel safe walking in my neighborhood, day or night [PhenX]"
+93683-1,Is anyone in your home threatening or abusing you [WellRx]
+63840-3,Is the floor material in your home plastic or vinyl [FEAS]
+63842-9,Is the wall material in your home plastic [FEAS]
+63841-1,"Is the wall material in your home textile, cloth, jute, etc [FEAS]"
+63835-3,Is the wall material of your work space plastic [FEAS]
+63834-6,"Is the wall material of your work space textile, cloth, jute, etc [FEAS]"
+92278-1,Lived with someone who smoked regularly inside the home during childhood
+66357-5,"Many shops, stores, markets, or other places to buy things I need are within easy walking distance of my home [PhenX]"
+67613-0,My neighborhood is safe from crime [PhenX]
+62944-4,PhenX - exposures to violence - adult protocol 181401
+62945-1,PhenX - exposures to violence - child protocol 181402
+63017-8,PhenX - family conflict - intimate-relationship protocol 210401
+63018-6,PhenX - family conflict - parent - child protocol 210402
+63036-8,PhenX - neighborhood concentrated disadvantage protocol 211301
+63028-5,PhenX - neighborhood safety protocol 210901
+64035-9,Repair done in your home during the past 12 months if other [FEAS]
+92274-0,Rules for using smoked tobacco products inside home
+92279-9,Rules for using smokeless tobacco products inside home
+66362-5,The crime rate in my neighborhood makes it unsafe to go on walks at night [PhenX]
+63832-0,What is the floor material in your workspace [FEAS]
+63838-7,Which of the following repairs was done in your home during the past 12 months [FEAS]
+67040-6,Your rent or mortgage is too much [PhenX]
+67597-5,A large selection of fresh fruits and vegetables is available in my neighborhood [PhenX]
+67598-3,A large selection of low-fat products is available in my neighborhood [PhenX]
+92657-6,Age when first fed formula
+92661-8,Age when first fed something other than breast milk or formula
+93668-2,Did you or others you live with eat smaller meals or skip meals because you didn't have money for food in the past 2 months [WellRx]
+88124-3,Food insecurity risk [HVS]
+77234-3,How often in the past 12 months would you say the patient was worried or stressed about having enough money to buy nutritious meals [BRFSS]
+91658-5,How often is the following kind of support available to you if you need it - someone to prepare your meals if you were unable to do it yourself [MOS Social Support Survey]
+65464-0,"I did not feel like eating, I wasn't very hungry [CES-DC]"
+87303-4,Mother WIC food recipient
+63024-4,PhenX - healthy food environments protocol 210701
+45738-2,Regular or repetitive complaints of hunger [Minimum Data Set]
+89088-9,WIC services recipient
+88123-5,Within the past 12 months the food we bought just didn't last and we didn't have money to get more [U.S. FSS]
+88122-7,Within the past 12 months we worried whether our food would run out before we got money to buy more [U.S. FSS]
+87535-1,Challenges to maintaining treatments or health behaviors
+93678-1,Have you been at the emergency department more than twice in the last 6 months [WellRx]
+74186-8,Health insurance funding was provided
+93680-7,Hospitalized in the last 6 months
+91653-6,How often is the following kind of support available to you if you need it - someone to take you to the doctor if you needed it [MOS Social Support Survey]
+68503-2,How well do you speak english [SAMHSA]
+52553-5,Language.primary is English
+92257-5,Number of visits with usual provider 12 months
+52556-8,Payment sources
+94066-8,Person-Centered Primary Care Measure [PCPCM]
+54899-0,Preferred language
+76437-3,Primary insurance
+68504-0,What language do you feel most comfortable speaking with your doctor or nurse [SAMHSA]
