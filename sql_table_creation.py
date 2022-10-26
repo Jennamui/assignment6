@@ -1,3 +1,4 @@
+#import packages
 import dbm
 import pandas as pd 
 import sqlalchemy
@@ -14,18 +15,14 @@ def droppingFunction_all(dbList, db_source):
         print(f'kept table {table}')
 
 
+#get login credentials from env
 load_dotenv()
-
-
 GCP_MYSQL_HOSTNAME = os.getenv("GCP_MYSQL_HOSTNAME")
 GCP_MYSQL_USER = os.getenv("GCP_MYSQL_USER")
 GCP_MYSQL_PASSWORD = os.getenv("GCP_MYSQL_PASSWORD")
 GCP_MYSQL_DATABASE = os.getenv("GCP_MYSQL_DATABASE")
 
-
-########
-
-
+#connecting to mysql 
 connection_string = f'mysql+pymysql://{GCP_MYSQL_USER}:{GCP_MYSQL_PASSWORD}@{GCP_MYSQL_HOSTNAME}:3306/{GCP_MYSQL_DATABASE}'
 db_gcp = create_engine(connection_string)
 
@@ -36,7 +33,7 @@ db_gcp = create_engine(connection_string)
 tableNames_gcp = db_gcp.table_names()
 
 # reoder tables
-tableNames_gcp = ['medications','conditions', 'social_determinants','treatments_procedures','patients', 'patient_treatment']
+tableNames_gcp = ['medications','conditions', 'social_determinants','treatments_procedures','patients', 'patient_summary']
 
 # ### delete everything 
 droppingFunction_all(tableNames_gcp, db_gcp)
@@ -44,10 +41,6 @@ droppingFunction_all(tableNames_gcp, db_gcp)
 
 #### first step below is just creating a basic version of each of the tables,
 #### along with the primary keys and default values 
-
-
-### 
-
 
 table_medications = """
 create table if not exists medications (
@@ -117,7 +110,7 @@ create table if not exists patient_summary (
     FOREIGN KEY (medication) REFERENCES medications(med_ndc) ON DELETE CASCADE
 ); 
 """
-
+#execute tables
 db_gcp.execute(table_patients)
 db_gcp.execute(table_medications)
 db_gcp.execute(table_conditions)

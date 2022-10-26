@@ -1,3 +1,4 @@
+#import packages
 import dbm
 import pandas as pd 
 import sqlalchemy
@@ -9,7 +10,7 @@ import uuid
 import random
 import cryptography
 
-
+#login credentials
 load_dotenv()
 
 GCP_MYSQL_HOSTNAME = os.getenv("GCP_MYSQL_HOSTNAME")
@@ -17,8 +18,7 @@ GCP_MYSQL_USER = os.getenv("GCP_MYSQL_USER")
 GCP_MYSQL_PASSWORD = os.getenv("GCP_MYSQL_PASSWORD")
 GCP_MYSQL_DATABASE = os.getenv("GCP_MYSQL_DATABASE")
 
-
-
+#connecting
 connection_string_gcp = f'mysql+pymysql://{GCP_MYSQL_USER}:{GCP_MYSQL_PASSWORD}@{GCP_MYSQL_HOSTNAME}:3306/{GCP_MYSQL_DATABASE}'
 db_gcp = create_engine(connection_string_gcp)
 
@@ -68,7 +68,7 @@ cpt_codes_1k = cpt_codes.sample(n=1000, random_state=1)
 cpt_codes_1k = cpt_codes.drop_duplicates(subset=['com.medigy.persist.reference.type.clincial.CPT.code'], keep='first')
 
 ####real loinc codes
-loinc_codes = pd.read_csv('/Users/jennamui/Documents/GitHub/assignment6/loinc code.csv')
+loinc_codes = pd.read_csv('/Users/jennamui/Documents/GitHub/assignment6/loinc_code.csv')
 
 
 ########## INSERTING IN FAKE PATIENTS ##########
@@ -85,7 +85,6 @@ df_gcp = pd.read_sql_query("SELECT * FROM patients", db_gcp)
 
 
 ########## INSERTING IN CONDITIONS ##########
-
 insertQuery = "INSERT INTO conditions (icd10_code, icd10_description) VALUES (%s, %s)"
 
 startingRow = 0
@@ -104,7 +103,6 @@ df_gcp = pd.read_sql_query("SELECT * FROM conditions", db_gcp)
 
 
 ########## INSERTING IN FAKE MEDICATIONS ##########
-
 insertQuery = "INSERT INTO medications (med_ndc, med_human_name) VALUES (%s, %s)"
 
 medRowCount = 0
@@ -177,8 +175,11 @@ for index, row in df_patients.iterrows():
     df_patient_summary = df_patient_summary.append(df_medications_sample)
 
 print(df_patient_summary.head(20))
+
+#get rid of Nan values
 df_patient_summary['icd10_code'] = df_patient_summary['icd10_code'].fillna(method='ffill').fillna(method='bfill')
 df_patient_summary['med_ndc'] = df_patient_summary['med_ndc'].fillna(method='ffill').fillna(method='bfill')
+
 print(df_patient_summary.head(20))
 
 insertQuery = "INSERT INTO patient_summary (mrn, conditions, medication) VALUES (%s, %s, %s)"
