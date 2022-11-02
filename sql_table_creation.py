@@ -88,15 +88,19 @@ create table if not exists treatments_procedures (
 """
 
 table_patients = """
-create table if not exists patients(
+create table if not exists patients (
     id int auto_increment,
     mrn varchar(255) default null unique,
     first_name varchar(255) default null,
     last_name varchar(255) default null,
     dob varchar(255) default null,
     gender varchar(255) default null,
+    city varchar(255) default null,
+    state varchar(255) default null,
+    phone_number varchar(255) default null,
+    zip_code varchar(255) default null
     PRIMARY KEY (id)   
-    ); """
+); """
 
 table_patient_summary = """
 create table if not exists patient_summary (
@@ -110,6 +114,30 @@ create table if not exists patient_summary (
     FOREIGN KEY (medication) REFERENCES medications(med_ndc) ON DELETE CASCADE
 ); 
 """
+
+table_prod_patient_conditions = """
+create table if not exists patient_conditions (
+    id int auto_increment,
+    mrn varchar(255) default null,
+    icd10_code varchar(255) default null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (mrn) REFERENCES patients(mrn) ON DELETE CASCADE,
+    FOREIGN KEY (icd10_code) REFERENCES conditions(icd10_code) ON DELETE CASCADE
+); 
+"""
+
+table_prod_patients_medications = """
+create table if not exists patient_medications (
+    id int auto_increment,
+    mrn varchar(255) default null,
+    med_ndc varchar(255) default null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (mrn) REFERENCES patients(mrn) ON DELETE CASCADE,
+    FOREIGN KEY (med_ndc) REFERENCES medications(med_ndc) ON DELETE CASCADE
+); 
+"""
+
+
 #execute tables
 db_gcp.execute(table_patients)
 db_gcp.execute(table_medications)
@@ -117,7 +145,8 @@ db_gcp.execute(table_conditions)
 db_gcp.execute(table_treatments_procedures)
 db_gcp.execute(table_social_determinants)
 db_gcp.execute(table_patient_summary)
-
+db_gcp.execute(table_prod_patient_conditions)
+db_gcp.execute(table_prod_patients_medications)
 
 # get tables from db_gcp
 gcp_tables = db_gcp.table_names()

@@ -38,7 +38,10 @@ fake_patients = [
         'last_name':fake.last_name(),
         'dob':(fake.date_between(start_date='-90y', end_date='-20y')).strftime("%Y-%m-%d"),
         'gender': fake.random_element(elements=('M', 'F')),
-
+        'zip_code':fake.zipcode(),
+        'city':fake.city(), 
+        'state':fake.state(),
+        'phone_number':fake.phone_number()
 
     } for x in range(50)]
 
@@ -72,11 +75,11 @@ loinc_codes = pd.read_csv('/Users/jennamui/Documents/GitHub/assignment6/loinc_co
 
 
 ########## INSERTING IN FAKE PATIENTS ##########
-insertQuery = "INSERT INTO patients (mrn, first_name, last_name, dob, gender) VALUES (%s, %s, %s, %s, %s)"
+insertQuery = "INSERT INTO patients (mrn, first_name, last_name, dob, gender, zip_code, city, state, phone_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
 
 for index, row in df_fake_patients.iterrows():
-    db_gcp.execute(insertQuery, (row['mrn'], row['first_name'], row['last_name'],row['dob'], row['gender']))
+    db_gcp.execute(insertQuery, (row['mrn'], row['first_name'], row['last_name'],row['dob'], row['gender'], row['zip_code'], row['city'], row['state'], row['phone_number']))
     print("inserted row: ", index)
 
 # # query dbs to see if data is there
@@ -187,4 +190,62 @@ insertQuery = "INSERT INTO patient_summary (mrn, conditions, medication) VALUES 
 for index, row in df_patient_summary.iterrows():
     db_gcp.execute(insertQuery, (row['mrn'], row['icd10_code'], row['med_ndc']))
     print("inserted row: ", index)
+
+####FOR THE PATIENT CONDITIONS TABLE
+df_conditions = pd.read_sql_query("SELECT icd10_code FROM conditions", db_gcp)
+df_patients = pd.read_sql_query("SELECT mrn FROM patients", db_gcp)
+
+# create a dataframe that is stacked and give each patient a random number of conditions between 1 and 5
+df_patient_conditions = pd.DataFrame(columns=['mrn', 'icd10_code'])
+# for each patient in df_patient_conditions, take a random number of conditions between 1 and 10 from df_conditions and palce it in df_patient_conditions
+for index, row in df_patients.iterrows():
+    # get a random number of conditions between 1 and 5
+    # numConditions = random.randint(1, 5)
+    # get a random sample of conditions from df_conditions
+    df_conditions_sample = df_conditions.sample(n=random.randint(1, 5))
+    # add the mrn to the df_conditions_sample
+    df_conditions_sample['mrn'] = row['mrn']
+    # append the df_conditions_sample to df_patient_conditions
+    df_patient_conditions = df_patient_conditions.append(df_conditions_sample)
+
+print(df_patient_conditions.head(20))
+
+# now lets add a random condition to each patient
+insertQuery = "INSERT INTO patient_conditions (mrn, icd10_code) VALUES (%s, %s)"
+
+for index, row in df_patient_conditions.iterrows():
+    db_gcp.execute(insertQuery, (row['mrn'], row['icd10_code']))
+    print("inserted row: ", index)
+
+
+df_medications = pd.read_sql_query("SELECT med_ndc FROM medications", db_gcp) 
+df_patients = pd.read_sql_query("SELECT mrn FROM patients", db_gcp)
+
+
+
+####FOR THE PATIENT MEDICATIONS TABLE
+# create a dataframe that is stacked and give each patient a random number of medications between 1 and 5
+df_patient_medications = pd.DataFrame(columns=['mrn', 'med_ndc'])
+# for each patient in df_patient_medications, take a random number of medications between 1 and 10 from df_medications and palce it in df_patient_medications
+for index, row in df_patients.iterrows():
+    # get a random number of medications between 1 and 5
+    numMedications = random.randint(1, 5)
+    # get a random sample of medications from df_medications
+    df_medications_sample = df_medications.sample(n=numMedications)
+    # add the mrn to the df_medications_sample
+    df_medications_sample['mrn'] = row['mrn']
+    # append the df_medications_sample to df_patient_medications
+    df_patient_medications = df_patient_medications.append(df_medications_sample)
+
+print(df_patient_medications.head(10))
+
+# now lets add a random medication to each patient
+insertQuery = "INSERT INTO patient_medications (mrn, med_ndc) VALUES (%s, %s)"
+
+for index, row in df_patient_medications.iterrows():
+    db_gcp.execute(insertQuery, (row['mrn'], row['med_ndc']))
+    print("inserted row: ", index)
+
+
+
 
