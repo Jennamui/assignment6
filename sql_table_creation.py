@@ -33,7 +33,7 @@ db_gcp = create_engine(connection_string)
 tableNames_gcp = db_gcp.table_names()
 
 # reoder tables
-tableNames_gcp = ['medications','conditions', 'social_determinants','treatments_procedures','patients', 'patient_summary']
+tableNames_gcp = ['medications','conditions', 'social_determinants','treatments_procedures','patients', 'patient_summary','patient_conditions','patient_medications']
 
 # ### delete everything 
 droppingFunction_all(tableNames_gcp, db_gcp)
